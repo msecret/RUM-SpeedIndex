@@ -50,7 +50,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 var RUMSpeedIndex = function(win) {
   win = win || window;
   var doc = win.document;
-    
+
   /****************************************************************************
     Support Routines
   ****************************************************************************/
@@ -270,3 +270,6 @@ var RUMSpeedIndex = function(win) {
   */
   return SpeedIndex;
 };
+
+
+module.exports = RUMSpeedIndex;
