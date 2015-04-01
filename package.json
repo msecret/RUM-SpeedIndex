@@ -1,0 +1,30 @@
+{
+  "name": "RUM-SpeedIndex",
+  "version": "0.1.0",
+  "description": "RUM-SpeedIndex ==============",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "mochify": "^2.7.0",
+    "browserify": "^9.0.3"
+  },
+  "devDependencies": {
+    "expect": "^1.6.0"
+  },
+  "scripts": {
+    "test-phantom": "mochify",
+    "test": "npm run test-phantom"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/msecret/RUM-SpeedIndex.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/msecret/RUM-SpeedIndex/issues"
+  },
+  "homepage": "https://github.com/msecret/RUM-SpeedIndex"
+}
