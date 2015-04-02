@@ -1,11 +1,8 @@
-var expect = require('expect');
+var test = require('tape');
 
 var SpeedIndex = require('../src/rum-speedindex');
 
-describe('SpeedIndex', function() {
-  describe('()', function() {
-    it('should be defined', function() {
-      expect(SpeedIndex).toExist('It exists')
-    });
-  });
+test('hello says hello', function(t){
+  t.plan(1);
+  t.equal(SpeedIndex, 'hello world', 'test it');
 });
