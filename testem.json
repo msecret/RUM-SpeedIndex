@@ -6,6 +6,7 @@
     "test/**/*_test.js"
   ],
   "serve_files": ["bundle.js"],
+  "before_tests": "browserify test/rum-speedindex_test.js -t babelify -o bundle.js",
   "on_exit": "rm bundle.js",
-  "launch_in_dev": [ "Chrome", "PhantomJS"]
+  "launch_in_dev": ["PhantomJS"]
 }
