@@ -11,13 +11,18 @@
     "babel-eslint": "^2.0.2",
     "babelify": "^5.0.4",
     "browserify": "^9.0.4",
+    "eslint": "^0.18.0",
     "expect": "^1.6.0",
+    "rewireify": "0.0.13",
+    "sinon": "^1.14.1",
     "tape": "^3.5.0",
     "testem": "^0.7.6"
   },
   "scripts": {
+    "lint": "eslint test/rum-speedindex_test.js",
     "test-phantom": "testem ci -l PhantomJS",
-    "test": "npm run test-phantom"
+    "test": "npm run test-phantom",
+    "watch-test": "testem"
   },
   "repository": {
     "type": "git",
