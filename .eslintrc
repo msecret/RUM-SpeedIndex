@@ -2,6 +2,7 @@
   "parser": "babel-eslint",
   "rules": {
     "strict": 0,
+    "no-underscore-dangle": false,
     "quotes": [2, "single"]
   }
 }

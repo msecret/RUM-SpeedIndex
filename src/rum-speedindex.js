@@ -49,6 +49,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 var rects = [];
+var win;
+var doc;
 
 /****************************************************************************
   Support Routines
@@ -58,6 +60,8 @@ export var GetElementViewportRect = function(el) {
   var intersect = false;
   if (el.getBoundingClientRect) {
     var elRect = el.getBoundingClientRect();
+    // innerHeight/Width total browser window height and width.
+    // bottom is value of bottom of element
     intersect = {'top': Math.max(elRect.top, 0),
                      'left': Math.max(elRect.left, 0),
                      'bottom': Math.min(elRect.bottom, (win.innerHeight || doc.documentElement.clientHeight)),
@@ -244,6 +248,11 @@ var CalculateSpeedIndex = function() {
 /****************************************************************************
   Main flow
 ****************************************************************************/
+export function setWindow(lwin) {
+  win = lwin || window;
+  doc = win.document;
+}
+
 export function SpeedIndex(win) {
   win = win || window;
   doc = win.document;
