@@ -23,7 +23,7 @@ test('checkElement returns null if no url passed', t => {
 });
 
 test('checkElement returns null if GetElementViewportRect returns false', t => {
-  let GetElementViewportRectSource = rSI.__get__('GetElementViewportRect');
+  let sourceGetElementViewportRect = rSI.__get__('GetElementViewportRect');
   rSI.__set__('GetElementViewportRect', el => {
     return false;
   });
@@ -31,7 +31,32 @@ test('checkElement returns null if GetElementViewportRect returns false', t => {
   let actual = rSI.CheckElement(testEl, 'http://url.com');
   t.ok(!actual, 'returns null or undefined');
 
-  rSI.__set__('GetElementViewportRect', GetElementViewportRectSource);
+  rSI.__set__('GetElementViewportRect', sourceGetElementViewportRect);
+
+  t.end();
+});
+
+test('checkElement gives back object with url passed in and area/rect from '+
+    'successful GetElementViewportRect call', t => {
+  let expectedRect = {
+    area: 100,
+    w: 100,
+    h: 200
+  },
+      expectedUrl = 'http://test.gov';
+
+  let sourceGetElementViewportRect = rSI.__get__('GetElementViewportRect');
+  rSI.__set__('GetElementViewportRect', el => {
+    return expectedRect;
+  });
+
+  let actual = rSI.CheckElement(testEl, expectedUrl);
+
+  t.equal(actual.url, expectedUrl);
+  t.equal(actual.rect, expectedRect);
+  t.equal(actual.area, expectedRect.area);
+
+  rSI.__set__('GetElementViewportRect', sourceGetElementViewportRect);
 
   t.end();
 });

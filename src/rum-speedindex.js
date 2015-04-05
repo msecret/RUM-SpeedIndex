@@ -48,6 +48,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ******************************************************************************/
 
 
+var rects = [];
 
 /****************************************************************************
   Support Routines
@@ -73,14 +74,17 @@ export var GetElementViewportRect = function(el) {
 
 // Check a given element to see if it is visible
 export var CheckElement = function(el, url) {
+  var checked;
   if (url) {
-    var rect = GetElementViewportRect(el);
+    let rect = GetElementViewportRect(el);
     if (rect) {
-      rects.push({'url': url,
+      checked = {'url': url,
                    'area': rect.area,
-                   'rect': rect});
+                   'rect': rect};
+      rects.push(checked);
     }
   }
+  return checked;
 };
 
 // Get the visible rectangles for elements that we care about
@@ -242,8 +246,8 @@ var CalculateSpeedIndex = function() {
 ****************************************************************************/
 export function SpeedIndex(win) {
   win = win || window;
-  var doc = win.document;
-  var rects = [];
+  doc = win.document;
+  rects = [];
   var progress = [];
   var firstPaint;
   var SpeedIndex;
